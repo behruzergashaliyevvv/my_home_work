@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main(List<String> args) {
+void main() {
   runApp(MyApp());
 }
 
@@ -11,80 +11,219 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          leading: Container(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  spreadRadius: 2,
-                  blurRadius: 3,
-                  offset: Offset(0, 2), // changes position of shadow
-                ),
-              ],
-            ),
-            child: Material(
-              color: Colors.transparent,
-              child: InkWell(
-                onTap: () {},
-                child: Icon(Icons.arrow_back,
-                    color: const Color.fromARGB(255, 163, 0, 0)),
-              ),
-            ),
+          leading: IconButton(
+            onPressed: () {},
+            icon: Image.asset("assets/images/avatardefault_92824.png"),
+          ),
+          title: const Text(
+            "Hi, John Smith 👋",
           ),
           actions: [
-            Container(
-              margin: EdgeInsets.all(10),
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    spreadRadius: 2,
-                    blurRadius: 3,
-                    offset: Offset(0, 2), // changes position of shadow
+            IconButton(
+              onPressed: () {},
+              icon: Image.asset(
+                "assets/images/3119338.png",
+                color: Colors.blue,
+              ),
+            ),
+          ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 370,
+                height: 120,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 232, 204, 204),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const Stack(
+                  children: [
+                    Positioned(
+                      top: 20,
+                      left: 20,
+                      child: Text(
+                        'Discover How',
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 224, 72, 1)),
+                      ),
+                    ),
+                    Positioned(
+                      top: 50,
+                      left: 20,
+                      child: Text(
+                        'To Be Creative',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 224, 72, 1),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 60,
+                      right: 50,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Icon(
+                            Icons.rocket_launch,
+                            color: Colors.red,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                // mainAxisSize: MainAxisSize.max,
+                children: [
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    'Instructor',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  onTap: () {},
-                  child: Icon(Icons.favorite,
-                      color: const Color.fromARGB(255, 163, 0, 0)),
-                ),
+              const SizedBox(height: 16.0),
+              SizedBox(
+                height: 15,
               ),
-            ),
-          ],
-        ),
-        body: Column(
-          children: [
-            Container(
-              width: 60,
-              height: 100,
-              margin: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 194, 51, 51),
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0xFF1E5EBC).withAlpha(15),
-                    offset: Offset(10, 10),
-                    blurRadius: 10,
-                    spreadRadius: 2.5,
-                  )
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  _buildInstructorCard(
+                    imageAsset: 'assets/images/Michael.jpg',
+                    name: 'Michale',
+                  ),
+                  const SizedBox(width: 16.0),
+                  _buildInstructorCard(
+                    imageAsset: 'assets/images/Florida.jpg',
+                    name: 'Florida',
+                  ),
+                  const SizedBox(width: 16.0),
+                  _buildInstructorCard(
+                    imageAsset: 'assets/images/Daniel.jpg',
+                    name: 'Daniel',
+                  ),
+                  const SizedBox(width: 16.0),
+                  _buildInstructorCard(
+                    imageAsset: 'assets/images/Steven.jpg',
+                    name: 'Steven',
+                  ),
                 ],
               ),
-              child: Center(
-                child: Text('Your content here'),
+              SizedBox(
+                height: 30,
               ),
-            ),
-          ],
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Courses',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              const SizedBox(height: 16.0),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildCourseCard(
+                      imageAsset: 'assets/images/kode.jpeg',
+                      title: 'Learn Web Development',
+                      duration: '24 Lessons\n2Hr 30Min',
+                    ),
+                    const SizedBox(width: 16.0),
+                    _buildCourseCard(
+                      imageAsset: 'assets/images/learn.jpeg',
+                      title: 'Learn Pro UI/UX Design',
+                      duration: '24 Lessons\n2Hr 30Min',
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget _buildInstructorCard({
+    required String imageAsset,
+    required String name,
+  }) {
+    return Column(
+      children: [
+        CircleAvatar(
+          radius: 30,
+          backgroundImage: AssetImage(imageAsset),
+        ),
+        const SizedBox(height: 8.0),
+        Text(
+          name,
+          style: const TextStyle(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCourseCard({
+    required String imageAsset,
+    required String title,
+    required String duration,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Image.asset(
+          imageAsset,
+          height: 50,
+        ),
+        const SizedBox(height: 8.0),
+        Text(
+          title,
+          style: const TextStyle(
+            fontSize: 10.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 10),
+        Text(
+          duration,
+          style: const TextStyle(
+            fontSize: 10.0,
+            color: Colors.grey,
+          ),
+        ),
+      ],
     );
   }
 }

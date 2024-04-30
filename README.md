@@ -17,6 +17,7 @@ samples, guidance on mobile development, and a full API reference.
 
 
 <img src="assets/screenshots/Снимок экрана 2024-04-30 081602.png" width="350">
+<img src="assets/screenshots/Снимок экрана 2024-04-30 083400.png" width="350">
 
 
 
